@@ -225,6 +225,52 @@
     color: #155e75;
   }
 
+  /* ---------- Glossary / 术语表 ---------- */
+  .glossary {
+    background: linear-gradient(180deg, #eef2ff 0%, #f5f3ff 100%);
+    border: 1px solid #c7d2fe;
+    border-radius: 12px;
+    padding: 18px 22px 22px;
+    margin: 0 0 28px;
+    box-shadow: 0 2px 6px rgba(67, 56, 202, 0.06);
+  }
+  .glossary > h2 {
+    margin: 0 0 4px;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    font-size: 20px;
+  }
+  .glossary-intro {
+    margin: 8px 0 16px;
+    font-size: 13.5px;
+    color: #4338ca;
+  }
+  .glossary .group {
+    background: #ffffff;
+    border: 1px solid #e0e7ff;
+    border-radius: 8px;
+    padding: 10px 14px 12px;
+    margin: 12px 0;
+  }
+  .glossary .group h3 {
+    margin: 0 0 8px;
+    padding: 0 0 6px;
+    border-bottom: 1px dashed #c7d2fe;
+    font-size: 15px;
+    color: #4338ca;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .glossary table {
+    margin: 0;
+    box-shadow: none;
+    font-size: 13.5px;
+    border-radius: 6px;
+  }
+  .glossary thead { background: #4338ca; }
+  .glossary thead th { padding: 6px 10px; font-size: 12px; }
+  .glossary tbody td { padding: 6px 10px; }
+
   /* ---------- Print-friendly ---------- */
   @media print {
     .toc, footer { display: none; }
@@ -241,6 +287,7 @@
   <nav class="toc" aria-label="Table of contents">
     <h3>目录 / Contents</h3>
     <ol>
+      <li><a class="lvl-2" href="#sec-glossary">📖 术语表 / Glossary</a></li>
       <li><a class="lvl-2" href="#sec-0">0. 战略定位</a></li>
       <li><a class="lvl-3" href="#sec-0-1">0.1 行业痛点</a></li>
       <li><a class="lvl-3" href="#sec-0-2">0.2 新研究范式</a></li>
@@ -284,6 +331,119 @@
         Phase 1b spec
       </div>
     </header>
+
+    <!-- ========== 术语表 / Glossary ========== -->
+    <section class="glossary" aria-label="术语表">
+      <h2 id="sec-glossary">📖 术语表 / Glossary</h2>
+      <p class="glossary-intro">
+        本文档涉及工业 4.0、注塑工艺、CAE 仿真、AI/ML 等多个领域术语，按类别汇总便于快速查阅。
+      </p>
+
+      <div class="group">
+        <h3>1️⃣ 通用 · 商业 · 项目管理</h3>
+        <table>
+          <thead><tr><th style="width:120px">缩写 / 术语</th><th>全称 / 中文</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td><code>AI</code></td><td>Artificial Intelligence · 人工智能</td><td>本项目核心方法，覆盖建模、优化、推理。</td></tr>
+            <tr><td><code>ML</code></td><td>Machine Learning · 机器学习</td><td>AI 子集；本项目用 PINN / GP / BO 等 ML 方法。</td></tr>
+            <tr><td><code>ROI</code></td><td>Return on Investment · 投资回报率</td><td>本项目用「累计产出 / 累计投入 − 1」衡量，见 §13。</td></tr>
+            <tr><td><code>SOP</code></td><td>Standard Operating Procedure · 标准作业程序</td><td>把工艺/数据/AI 协同流程固化为可执行文档。</td></tr>
+            <tr><td><code>MVP</code></td><td>Minimum Viable Product · 最小可行产品</td><td>Phase 4 的目标产出：闭环跑通后再扩展。</td></tr>
+            <tr><td><code>PM</code></td><td>Product Manager · 产品经理</td><td>本项目人力组成之一，负责需求/里程碑管理。</td></tr>
+            <tr><td><code>SKU</code></td><td>Stock Keeping Unit · 库存单位</td><td>单个产品的最小存货/识别单位。本项目语境下指「被工艺优化的最小产品单元」，见 §14.1 实际使用场景。</td></tr>
+            <tr><td><code>DevOps</code> / <code>MLOps</code></td><td>Development / ML Operations</td><td>CI/CD、监控、版本管理；Phase 5 量产化所需。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group">
+        <h3>2️⃣ 数据治理 · 工业信息化</h3>
+        <table>
+          <thead><tr><th style="width:120px">缩写 / 术语</th><th>全称 / 中文</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td><code>5M1E</code></td><td>Man / Machine / Material / Method / Measurement / Environment</td><td>质量管理六维度；本项目扩展为「5M1E + 模具」共七维度数据治理框架（见 §8）。</td></tr>
+            <tr><td><code>MES</code></td><td>Manufacturing Execution System · 制造执行系统</td><td>车间级数据中枢；Phase 4 闭环接入目标。</td></tr>
+            <tr><td><code>PLC</code></td><td>Programmable Logic Controller · 可编程逻辑控制器</td><td>设备侧数据采集源（与 MES 同为历史数据源之一）。</td></tr>
+            <tr><td><code>QA</code></td><td>Quality Assurance · 质量保证 / 质量管控</td><td>本项目指「注塑件质量数据」的数据源。</td></tr>
+            <tr><td><code>ETL</code></td><td>Extract-Transform-Load · 抽取-转换-加载</td><td>Phase 1.0 数据接入脚本的实现模式。</td></tr>
+            <tr><td><code>YAML</code></td><td>YAML Ain't Markup Language</td><td>字段字典与配置文件格式（任务 1.0.2）。</td></tr>
+            <tr><td><code>CV</code></td><td>Cross-Validation · 交叉验证</td><td>Phase 2 用 5-fold CV 评估 Surrogate 精度。</td></tr>
+            <tr><td><code>MissingReport</code></td><td>—</td><td>Phase 1.0 输出的「7 维度覆盖率」诊断报告。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group">
+        <h3>3️⃣ 注塑工艺 · 制造</h3>
+        <table>
+          <thead><tr><th style="width:140px">缩写 / 术语</th><th>全称 / 中文</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td><code>Cross-WLF</code></td><td>Cross-Williams-Landel-Ferry</td><td>黏度对温度/剪切率的本构模型（7 参数）。本项目材料库 <code>PP_CROSS_WLF</code> 即用此模型。</td></tr>
+            <tr><td><code>Tait PVT</code></td><td>Tait Pressure-Volume-Temperature</td><td>聚合物 P-V-T 状态方程，描述比容随压力/温度变化，与 Cross-WLF 配套使用。</td></tr>
+            <tr><td><code>UMAT</code></td><td>User MATerial (subroutine)</td><td>Abaqus 用户材料子程序；Phase 1.4 用 FORTRAN 实现 Cross-WLF + Tait PVT。</td></tr>
+            <tr><td><code>Pack-Hold</code></td><td>保压阶段</td><td>注塑循环的「填充 → 保压 → 冷却」三阶段中的保压段，Phase 1b 工艺配方对象。</td></tr>
+            <tr><td>Fill</td><td>填充阶段</td><td>注塑第一阶段；Phase 1.5 用 Abaqus 跑 Fill 仿真。</td></tr>
+            <tr><td><code>WLF</code></td><td>Williams-Landel-Ferry</td><td>温度-时间叠加移位因子；Cross-WLF 的「WLF」部分来源。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group">
+        <h3>4️⃣ 仿真 · CAE · 工业通信</h3>
+        <table>
+          <thead><tr><th style="width:140px">缩写 / 术语</th><th>全称 / 中文</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td><code>CAE</code></td><td>Computer-Aided Engineering · 计算机辅助工程</td><td>本项目最终孵化目标之一：「CAE-AI Service」。</td></tr>
+            <tr><td><code>OPC-UA</code></td><td>Open Platform Communications - Unified Architecture</td><td>工业设备互操作协议；Phase 4 真机接入候选。</td></tr>
+            <tr><td><code>Modbus</code></td><td>—</td><td>工业串行通信协议；OPC-UA 的低成本替代选项。</td></tr>
+            <tr><td><code>.inp</code></td><td>Abaqus Input File</td><td>Abaqus 仿真输入文件；本项目代码生成而不运行。</td></tr>
+            <tr><td><code>.for</code></td><td>FORTRAN Source File</td><td>UMAT 子程序源码格式。</td></tr>
+            <tr><td>Moldflow</td><td>Autodesk Moldflow Insight</td><td>商业注塑仿真软件；本项目 Phase 1 / 3 用作对标基准（不部署为运行时依赖）。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group">
+        <h3>5️⃣ AI · ML · 优化算法</h3>
+        <table>
+          <thead><tr><th style="width:140px">缩写 / 术语</th><th>全称 / 中文</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td><code>PINN</code></td><td>Physics-Informed Neural Network · 物理信息神经网络</td><td>本项目 Surrogate 的目标形态（Phase 2.2）；当前 MLP 是简化版。</td></tr>
+            <tr><td><code>BO</code></td><td>Bayesian Optimization · 贝叶斯优化</td><td>基于 GP surrogate 的全局优化；Phase 2 多目标寻参。</td></tr>
+            <tr><td><code>GP</code></td><td>Gaussian Process · 高斯过程</td><td>本项目 Surrogate 的基模型（scikit-learn / GPyTorch）。</td></tr>
+            <tr><td><code>R²</code></td><td>Coefficient of Determination · 决定系数</td><td>回归模型精度指标；Phase 2 ≥ 0.85、Phase 3 ≥ 0.80。</td></tr>
+            <tr><td><code>SHAP</code></td><td>SHapley Additive exPlanations</td><td>特征贡献解释方法；Phase 3.5 误差归因。</td></tr>
+            <tr><td>Pareto front</td><td>帕累托前沿</td><td>多目标优化中无法同时改进所有目标的解集；Phase 2.4 输出。</td></tr>
+            <tr><td>hold-out</td><td>留出法</td><td>把数据分为训练/测试子集的方法（Phase 2.3 验证流程）。</td></tr>
+            <tr><td>DeepXDE</td><td>Deep Learning Differential Equations</td><td>PDE 求解库；PINN 实现的候选工具。</td></tr>
+            <tr><td>BoTorch / GPyTorch</td><td>—</td><td>PyTorch 生态的 BO / GP 库，Phase 4 在线学习的实现候选。</td></tr>
+            <tr><td><code>GPU</code></td><td>Graphics Processing Unit · 图形处理单元</td><td>Phase 2/5 训练用加速硬件。</td></tr>
+            <tr><td><code>PDE</code></td><td>Partial Differential Equation · 偏微分方程</td><td>注塑填充物理由 PDE 描述（连续性/动量/能量方程）。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group">
+        <h3>6️⃣ 学术 · 标准 · 软件</h3>
+        <table>
+          <thead><tr><th style="width:120px">缩写 / 术语</th><th>全称 / 中文</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>Nature MI</td><td>Nature Machine Intelligence</td><td>顶级 AI 期刊；本项目潜在投稿方向。</td></tr>
+            <tr><td>JMP</td><td>Journal of Manufacturing Processes</td><td>制造工程主流期刊；工艺优化方向投稿候选。</td></tr>
+            <tr><td>Composites</td><td>Composites Part B (Elsevier)</td><td>复合材料/工艺期刊，含注塑相关研究。</td></tr>
+            <tr><td><code>ISO</code> / <code>ASTM</code></td><td>International Org. for Standardization / American Society for Testing Materials</td><td>国际标准组织 / 美国材料试验协会；Phase 1.3 选用标准测试件参考。</td></tr>
+            <tr><td>CAMPUS</td><td>Computer Aided Material Preselection by Uniform Standards</td><td>免费聚合物材料数据库。</td></tr>
+            <tr><td>PyTorch / Streamlit</td><td>—</td><td>本项目使用的深度学习框架 / 工程师工作台框架。</td></tr>
+            <tr><td><code>API</code></td><td>Application Programming Interface</td><td>Phase 5 SaaS 产品化的对外接口形式。</td></tr>
+            <tr><td>5M1E+模具</td><td>—</td><td>本项目自创术语：在 5M1E 六维度基础上新增「模具」维度，构成七维度治理框架。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="glossary-intro" style="margin-top:14px">
+        💡 <strong>补充说明</strong>: 凡未列出的缩写（如 <code>W1-W4</code> = Week 1-4, <code>L0-L5</code> = Level 0-5 跑通层, <code>R1-R6</code> = 数据质量规则 1-6 等）请参考正文首次出现处的上下文。
+      </p>
+    </section>
 
     <!-- ========== §0 战略定位 ========== -->
     <h2 id="sec-0">0. 战略定位</h2>
